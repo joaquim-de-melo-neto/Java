@@ -13,6 +13,6 @@ public static void main(String[] args){
 
 	String message = String.format("A soma é: %d",sum);
 	
-	JOptionPane.showMessageDialog(null,"A soma é: "+sum);
+	JOptionPane.showMessageDialog(null,"A soma é: "+sum); // POSSO TROCAR O SEGUNDO ARGUMENTO POR message.
 }
 }
