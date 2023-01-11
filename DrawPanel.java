@@ -33,5 +33,4 @@ public class DrawPanelTest{
 		aplication.setSize(250,250);
 		aplication.setVisible(true);
 	}
-
 }
