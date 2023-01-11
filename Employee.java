@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Employee{
 
 	private String name;
@@ -64,4 +62,34 @@ public class Employee{
 
 		System.out.printf("\n\n***********************\n\n");
 	}
+}
+
+
+import javax.swing.*;
+
+public class EmployeeTest{
+	public static void main(String[] args){
+
+		Employee empregado1 = new Employee("Joaquim","Neto",1000);
+		Employee empregado2 = new Employee("Gabriel","Santos",-2000);
+
+		empregado1.showEmployee();
+		empregado2.showEmployee();
+
+		Employee.linha();
+
+		empregado1.aumentoSalarial(0.1);
+		empregado2.setSalary(2000);
+		
+		empregado1.showEmployee();
+		empregado2.showEmployee();
+
+		Employee.linha();
+
+		empregado2.setSalary(-3000);
+
+		JOptionPane.showMessageDialog(null,"Funcionou");			
+	}
+
+
 }
