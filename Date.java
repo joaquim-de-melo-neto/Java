@@ -7,7 +7,8 @@ public class Date{
 	public Date(int dia, int mes, int ano){
 			if((mes==2 && dia<=28)||
 			(mes<8 && mes!=2 && mes%2==0 && dia<=30)||
-		    	(mes<8 && mes!=2 && mes%2==1 && dia<=31)||							(mes>=8 && mes%2==0 && dia<=31)||
+		    	(mes<8 && mes!=2 && mes%2==1 && dia<=31)||
+			(mes>=8 && mes%2==0 && dia<=31)||
 			(mes>=8 && mes%2==1 && dia<=30)){
 				this.dia = dia;
 				this.mes = mes;
@@ -46,4 +47,19 @@ public class Date{
 	public void display(){
 		System.out.printf("%d/%d/%d\n\n",mes,dia,ano);
 	}
-}			
+}	
+
+public class DateTeste{
+	public static void main(String[] args){
+		Date joaquim = new Date(21,06,1993);
+		Date gabriel = new Date(29,02,1999);
+		Date anderson = new Date(31,9,1987);
+		joaquim.display();
+		gabriel.display();
+		anderson.display();
+
+		anderson.setDia(18);
+		anderson.display();
+
+	}
+}
