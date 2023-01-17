@@ -1,0 +1,18 @@
+public class HeartRates{
+
+  private String nome;
+  private String sobrenome;
+  private int dia;
+  private int mes;
+  private int ano;
+  
+  // Construtor
+  public HeartRates(String nome, String sobrenome, int dia, int mes, int ano){
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.dia = dia;
+    this.mes = mes;
+    this.ano = ano;
+  }
+  
+  
