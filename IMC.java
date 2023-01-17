@@ -12,7 +12,7 @@ public class HeartRates{
     this.sobrenome = sobrenome;
     if((mes==2 && dia<=28)||
 			(mes<8 && mes!=2 && mes%2==0 && dia<=30)||
-		  (mes<8 && mes!=2 && mes%2==1 && dia<=31)||
+			(mes<8 && mes!=2 && mes%2==1 && dia<=31)||
 			(mes>=8 && mes%2==0 && dia<=31)||
 			(mes>=8 && mes%2==1 && dia<=30)){
           this.dia = dia;
@@ -35,16 +35,24 @@ public class HeartRates{
   }
   
   // Cálculo da Frequência Cardíaca Alvo (FCA). 50% a 85% da FCM.
-  public String FCA(HeartRates object,int diaAtual, int mesAtual, int anoAtual){
-    int fcm = object.FCM(diaAtual, mesAtual, anoAtual);
-    float fcmMin = 0.5*fcm;
-    float fcmMax = 0.85*fcm;
+  public String FCA(int diaAtual, int mesAtual, int anoAtual){
+    int fcm = this.FCM(diaAtual, mesAtual, anoAtual);
+    double fcmMin = 0.5*fcm;
+    double fcmMax = 0.85*fcm;
     
-    String strFcmMin = Float.toString(fcmMin);
-    String strFcmMax = Float.toString(fcmMax);
+    String strFcmMin = String.valueOf(fcmMin);
+    String strFcmMax = String.valueOf(fcmMax);
     
     String message = "O FCA está entre: ".concat(strFcmMin).concat(" e ").concat(strFcmMax);
     return message;
   }
-  
-  
+}
+
+// Classe de teste
+public class HeartRatesTeste{
+	public static void main(String[] args){
+		HeartRates paciente1 = new HeartRates("Joaquim","Neto",21,6,1993);
+		System.out.println(paciente1.FCA(17,1,2023));
+	}
+}
+
