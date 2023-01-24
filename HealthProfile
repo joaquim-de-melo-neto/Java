@@ -85,6 +85,10 @@ public class HealthProfile{
   public void setPeso(double pesp){
     this.peso = peso;
   }
-  
+  // Métodos
+  public void IMC(){
+  	double imc = peso / (altura * altura);
+	JoptionPAne.showMessageDialog(NULL,"Seu IMC é de: " + imc);
+  }
   
 }
