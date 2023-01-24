@@ -1,7 +1,4 @@
-/*HealthProfile “inicial” para uma
-pessoa. Os atributos da classe devem incluir nome, sobrenome, sexo, data de nascimento (consistindo em atributos separados para mês, dia
-e ano de nascimento), altura (em metros) e peso (em quilogramas) da pessoa. Sua classe deve ter um construtor que receba esses dados.
-Para cada atributo, forneça métodos set e get. A classe também deve incluir métodos que calculem e retornem a idade do usuário em anos,
+/* A classe também deve incluir métodos que calculem e retornem a idade do usuário em anos,
 intervalo de frequência cardíaca máxima e frequência cardíaca alvo (veja o Exercício 3.16), além de índice de massa corporal (IMC; veja
 o Exercício 2.33). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto da classe HealthProfile para
 ela e imprima as informações a partir desse objeto — incluindo nome, sobrenome, sexo, data de nascimento, altura e peso da pessoa ––, e
@@ -22,10 +19,17 @@ public class HealthProfile{
   public HealthProfile( String nome, String sobrenome, char sexo ,int dia, int mes, int ano, double altura, double peso){
     this.nome = nome
     this.sobrenome = sobrenome;
-    this.sexo = sexo;
-    this.dia = dia;
-    this.mes = mes;
-    this.ano = ano;
+    if(sexo == 'm'|| sexo == 'M'|| sexo == 'f' || sexo == 'F')
+      this.sexo = sexo;
+    if((mes==2 && dia<=28)||
+			(mes<8 && mes!=2 && mes%2==0 && dia<=30)||
+			(mes<8 && mes!=2 && mes%2==1 && dia<=31)||
+			(mes>=8 && mes%2==0 && dia<=31)||
+			(mes>=8 && mes%2==1 && dia<=30)){
+          this.dia = dia;
+          this.mes = mes;
+          this.ano = ano;
+    }
     this.altura = altura;
     this.peso = peso;
   }
