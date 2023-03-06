@@ -1,0 +1,49 @@
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class DrawShape extends JPanel {
+	int choice;
+	
+	public DrawShape(int userChoice) {
+		choice = userChoice;
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		for(int i=0; i<10; ++i) {
+			switch(choice) {
+			case 1:
+				g.drawRect(0+10*i, 0+10*i, 50+10*i, 50+10*i);
+				break;
+				
+			case 2: 
+				g.drawOval(0+10*i, 0+10*i, 50+10*i, 50+10*i);
+				break;
+			}
+		}
+	}
+
+}
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class DrawShapeTest {
+
+	public static void main(String[] args) {
+		String input = JOptionPane.showInputDialog("Informe o numero: ");
+		
+		int choice = Integer.parseInt(input);
+		
+		DrawShape shape = new DrawShape(choice);
+		
+		JFrame frame = new JFrame();
+		
+		frame.add(shape);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400, 400);
+		frame.setVisible(true);
+	}
+}
