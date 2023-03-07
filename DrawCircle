@@ -1,0 +1,36 @@
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class DrawCircle extends JPanel {
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		int x=190, y=190;
+		for(int i=1;i<12;++i) {
+			
+		g.drawOval(x-i*10, y-i*10, i*20, i*20);
+		
+		}
+	}
+
+}
+// CLASSE TESTE 
+import javax.swing.JFrame;
+
+public class DrawCircleTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DrawCircle panel = new DrawCircle();
+		
+		JFrame frame = new JFrame();
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400, 400);
+		frame.add(panel);
+		frame.setVisible(true);
+
+	}
+
+}
