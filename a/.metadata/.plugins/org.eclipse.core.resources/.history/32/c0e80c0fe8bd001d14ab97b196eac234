@@ -1,0 +1,18 @@
+package random;
+
+import java.security.SecureRandom;
+
+public class Random {
+
+	public static void main(String[] args) {
+
+		int i=0;
+		SecureRandom valoresAleatorios = new SecureRandom();
+		
+		int valor = valoresAleatorios.nextInt();
+		
+		while(i++<10)
+		System.out.println(valor);
+	}
+
+}

@@ -1,0 +1,14 @@
+package books;
+
+import java.sql.SQLException;
+
+public class BookDatabaseTest {
+		
+	public static void main(String[] args) throws SQLException {
+		Database database = new Database();
+		
+		CRUD crud = new CRUD(database);
+		
+	}
+
+}

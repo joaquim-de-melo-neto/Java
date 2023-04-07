@@ -1,0 +1,58 @@
+package books;
+
+import static javax.swing.JOptionPane.*;
+
+import java.sql.SQLException;
+
+public class CRUD {
+	private static BookDatabase database;
+	
+//	construtor
+	public CRUD(BookDatabase db) {
+		database = db;
+		
+		try {
+			display();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void display() throws SQLException {
+		byte option = Byte.parseByte(showInputDialog("""
+			Selecione a opção desejada:
+			1 - CRIAR REGISTRO
+			2 - SELECIONAR TABELA
+			3 - ATUALIZAR REGISTRO
+			4 - DELETAR REGISTRO
+			5 - SAIR"""));
+		
+		switch(option) {
+		case 1: 
+			String firstNameAdd = showInputDialog("Infome o primeiro nome: ");
+			String lastNameAdd = showInputDialog("Infome o último nome: ");
+			database.addAuthor(firstNameAdd, lastNameAdd);
+			break;
+		case 2: 
+			database.queryAuthor();
+			break;
+		case 3:
+			String firstNameUpdate = showInputDialog("Infome o primeiro nome: ");
+			String lastNameUpdate = showInputDialog("Infome o último nome: ");
+			String primaryKeyUpdate = showInputDialog("Infome o id: ");
+			database.updateAuthor(primaryKeyUpdate, firstNameUpdate, lastNameUpdate);
+			break;
+		case 4:
+			String primaryKeyDelete = showInputDialog("Infome o id: ");
+			database.removeAuthor(primaryKeyDelete);
+			break;
+			default:
+				return;
+				
+		}
+	
+	}
+	
+	
+
+}

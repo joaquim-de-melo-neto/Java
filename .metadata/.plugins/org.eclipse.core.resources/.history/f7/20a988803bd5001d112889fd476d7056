@@ -1,0 +1,70 @@
+package poker;
+
+import java.util.Arrays;
+
+public class Player {
+	private Card[] hand;
+
+	public Player(Card[] hand) {
+		this.hand = hand;
+		Arrays.sort(this.hand);
+	}
+
+//  checa por um par
+	public boolean checkPair() {
+		for (int outer = 0; outer < hand.length - 2; outer++) {
+			String face = hand[outer].getFace();
+			for (int inner = outer + 1; inner < hand.length; inner++) {
+				String otherFace = hand[inner].getFace();
+				if (face.equals(otherFace))
+					return true;
+			}
+		}
+		return false;
+	}
+
+//  checa por dois pares
+	public boolean checkTwoPair() {
+//		checa todas as combinações possíveis de dois pares
+		if (hand[0].getFace().equals(hand[1].getFace()) && hand[2].getFace().equals(hand[3].getFace())
+				|| hand[0].getFace().equals(hand[1].getFace()) && hand[3].getFace().equals(hand[4].getFace())
+				|| hand[1].getFace().equals(hand[2].getFace()) && hand[3].getFace().equals(hand[4].getFace()))
+			return true;
+		return false;
+	}
+
+//  checa por uma trinca	
+	public boolean checkThreeOfAKind() {
+		for (int outer = 0; outer < hand.length - 3; outer++) {
+			String face = hand[outer].getFace();
+			for (int inner = outer + 1; inner < hand.length; inner++) {
+				String otherFace = hand[inner].getFace();
+				int count = 0;
+				if (face.equals(otherFace)) {
+					count++;
+					if (count == 2)
+						return true;
+				}
+			}
+		}
+		return false;
+
+	}
+
+//	checa por uma sequência
+	public boolean checkStraigth() {
+		String[] faces = { "Ace", "Deuce", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack",
+				"Queen", "King" };
+		int sequenceIndex = 0; // guarda o valor do indexador de face que é igual em hand
+		for (int index = 0; index <= 8; index++) {
+			if (faces[index].equals(hand[0].getFace()))
+				sequenceIndex = index;
+		}
+//		compara as sequências dos arrays hand e faces
+		for (int index = 1; index < hand.length; index++) {
+			if (!(hand[index].getFace().equals(faces[sequenceIndex + index])))
+				return false;
+		}
+		return true;
+	}
+}

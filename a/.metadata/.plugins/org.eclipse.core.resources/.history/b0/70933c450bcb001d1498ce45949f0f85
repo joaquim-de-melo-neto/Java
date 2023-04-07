@@ -1,0 +1,22 @@
+package books;
+
+import java.sql.*;
+
+public class BookDatabase {
+    private Connection conn;
+
+    public BookDatabase() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/books";
+        String user = "username";
+        String password = "password";
+        conn = DriverManager.getConnection(url, user, password);
+    }
+
+    public void addAuthor(String firstName, String lastName) throws SQLException {
+        String sql = "INSERT INTO Author (firstName, lastName) VALUES (?, ?)";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, firstName);
+        statement.setString(2, lastName);
+        statement.executeUpdate();
+    }
+}

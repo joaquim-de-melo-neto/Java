@@ -1,0 +1,36 @@
+package exc;
+
+import java.security.SecureRandom;
+
+public class JogoDeDados {
+
+	public static void main(String[] args) {
+		SecureRandom random = new SecureRandom();
+		
+		int dado1 = 0, dado2 = 0;
+		int[][] frequency = new int[6][6];
+		
+//		iteração para contagem de frequência
+		for(int count=1; count<=1000; ++count) {
+			dado1 = random.nextInt(1,7);
+			dado2 = random.nextInt(1,7);
+			
+			++frequency[dado1-1][dado2-1];
+		} // fim da iteração de contagem de frequência
+		
+		for(int label=2; label<=6; ++label) {
+			System.out.printf("%7d ",label);
+			
+		}
+		System.out.println();
+		for(int count=1; count<=6; ++count) {
+			System.out.printf("%d",count);
+			for(int number=0; number<6;++number) {
+				System.out.printf("%7d",frequency[count-1][number]);
+			}
+			System.out.println();
+		}
+
+	}
+
+}
