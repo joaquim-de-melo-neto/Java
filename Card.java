@@ -1,4 +1,4 @@
-package exemplos;
+package poker;
 
 public class Card {
 	private final String face; // face da carta ("Ace", "Deuce", ...)
@@ -11,7 +11,21 @@ public class Card {
 		this.suit = cardSuit; // inicializa naipe da carta
 	}
 
-	// retorna representação String de Cardÿ
+	/**
+	 * @return the face
+	 */
+	public String getFace() {
+		return face;
+	}
+
+	/**
+	 * @return the suit
+	 */
+	public String getSuit() {
+		return suit;
+	}
+
+	// retorna representação String de Card
 	public String toString() 
 	{ 
 		return face + " of " + suit;

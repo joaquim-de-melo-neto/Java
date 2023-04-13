@@ -1,4 +1,4 @@
-package exemplos;
+package poker;
 
 import java.security.SecureRandom;
 
@@ -7,8 +7,7 @@ public class DeckOfCards
 	private Card[] deck; // array de objetos Cardÿ
 	private int currentCard; // índice da próxima Card a ser distribuída (0-51)
 	private static final int NUMBER_OF_CARDS = 52; // número constante de Cards
-	// gerador de número aleatório
-	private static final SecureRandom randomNumbers = new SecureRandom();
+	private static final SecureRandom randomNumbers = new SecureRandom(); // gerador de número aleatório
 
 	// construtor preenche baralho de cartas
 	public DeckOfCards()
@@ -16,10 +15,10 @@ public class DeckOfCards
 		String[] faces = { "Ace", "Deuce", "Three", "Four", "Five", "Six",
 				"Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" }; 
 		String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
-		deck = new Card[NUMBER_OF_CARDS]; // cria array de objetos Cardÿ
+		deck = new Card[NUMBER_OF_CARDS]; // cria array de objetos Card
 		currentCard = 0; // a primeira Card distribuída será o deck[0]
 
-		// preenche baralho com objetos Card ÿ
+		// preenche baralho com objetos Card 
 		for (int count = 0; count < deck.length; count++) 
 			deck[count] = 
 			new Card(faces[count % 13], suits[count / 13]); 
@@ -37,7 +36,7 @@ public class DeckOfCards
 			// seleciona um número aleatório entre 0 e 51
 			int second = randomNumbers.nextInt(NUMBER_OF_CARDS);
 
-			// compara Card atual com Card aleatoriamente selecionada
+			// troca Card atual com Card aleatoriamente selecionada
 			Card temp = deck[first]; 
 			deck[first] = deck[second];
 			deck[second] = temp; 
