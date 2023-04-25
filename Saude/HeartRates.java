@@ -48,10 +48,4 @@ public class HeartRates{
   }
 }
 
-// Classe de teste
-public class HeartRatesTeste{
-	public static void main(String[] args){
-		HeartRates paciente1 = new HeartRates("Joaquim","Neto",21,6,1993);
-		System.out.println(paciente1.FCA(17,1,2023));
-	}
-}
+
