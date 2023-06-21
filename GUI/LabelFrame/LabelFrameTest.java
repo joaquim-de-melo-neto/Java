@@ -1,4 +1,4 @@
-package gui;
+package labelFrame;
 
 import javax.swing.JFrame;
 

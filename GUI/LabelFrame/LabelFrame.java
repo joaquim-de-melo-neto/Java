@@ -1,4 +1,4 @@
-package gui;
+package labelFrame;
 
 import java.awt.FlowLayout;
 
@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class LabelFrame extends JFrame {
 	private final JLabel label1;
 	private final JLabel label2;
@@ -25,7 +26,7 @@ public class LabelFrame extends JFrame {
 		label1.setToolTipText(getTitle());
 		add(label1);
 		
-		Icon image = new ImageIcon("foto1.jpg");
+		Icon image = new ImageIcon("foto1.jpg.jpg");
 		label2 = new JLabel("label 02",image,SwingConstants.CENTER);
 		add(label2);
 		
