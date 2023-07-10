@@ -1,5 +1,3 @@
-package correspondencia_de_arquivos;
-
 public enum MenuOption {
 	
 	ZERO_BALANCE(0),
