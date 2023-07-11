@@ -1,3 +1,7 @@
+/*Este programa irá gerar todas as combinações possíveis de palavras de sete letras correspondentes ao número de telefone fornecido. Ele utiliza um objeto PrintStream para gravar as combinações em um arquivo chamado combinations.txt.
+O programa armazena o mapeamento dos dígitos para as letras em um array chamado MAPPING. Em seguida, ele percorre o número de telefone dígito por dígito e gera todas as combinações possíveis de palavras usando a recursão. Cada combinação é armazenada no arquivo combinations.txt.
+Certifique-se de ajustar o número de telefone na linha int[] phoneNumber = {2, 3, 4, 5, 6, 7, 8}; para o número de sete dígitos que você deseja usar.*/
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
