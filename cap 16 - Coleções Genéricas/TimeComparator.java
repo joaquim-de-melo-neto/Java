@@ -8,7 +8,7 @@ import java.util.Comparator;
       int hourDifference = time1.getHour() - time2.getHour();
   
       if (hourDifference != 0) // testa a primeira hora
-        return hourCompare;
+        return hourDifference;
   
       int minuteDifference = time1.getMinute() - time2.getMinute();
   
