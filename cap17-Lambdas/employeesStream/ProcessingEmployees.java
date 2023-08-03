@@ -1,6 +1,5 @@
 package employeesStream;
 
-//Figura .: ProcessingEmployees.java
 // Processando fluxos de objetos Employee.
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,10 +13,14 @@ import java.util.stream.Collectors;
 public class ProcessingEmployees {
 	public static void main(String[] args) {
 		// inicializa o array de Employees
-		Employee[] employees = { new Employee("Jason", "Red", 5000, "IT"), new Employee("Ashley", "Green", 4000, "IT"),
+		Employee[] employees = { 
+				new Employee("Jason", "Red", 5000, "IT"), 
+				new Employee("Ashley", "Green", 4000, "IT"),
 				new Employee("Matthew", "Indigo", 6900.78, "Sales"),
-				new Employee("James", "Indigo", 3890.10, "Marketing"), new Employee("Luke", "Indigo", 2000, "IT"),
-				new Employee("Jason", "Blue", 6500, "Sales"), new Employee("Wendy", "Brown", 1200.40, "Marketing") };
+				new Employee("James", "Indigo", 3890.10, "Marketing"), 
+				new Employee("Luke", "Indigo", 2000, "IT"),
+				new Employee("Jason", "Blue", 6500, "Sales"),
+				new Employee("Wendy", "Brown", 1200.40, "Marketing") };
 
 		// obtém a visualização List dos Employees
 		List<Employee> list = Arrays.asList(employees);
@@ -25,19 +28,19 @@ public class ProcessingEmployees {
 		// exibe todos os Employees
 		System.out.println("Complete Employee list:");
 		list.stream().forEach(System.out::println);
-		// Predicate que retorna true para salários no intervalo US$ -US$
+		// Predicate que retorna true para salários no intervalo US$4000 - US$6000
 		Predicate<Employee> fourToSixThousand = e -> (e.getSalary() >= 4000 && e.getSalary() <= 6000);
 
-		// Exibe Employees com salários no intervalo US$ -US$
+		// Exibe Employees com salários no intervalo US$4000 - US$6000
 		// classificados em ordem crescente por salário
-		System.out.printf("%nEmployees earning $-$ per month sorted by salary:%n");
+		System.out.printf("%nEmployees earning $4000 - $6000 per month sorted by salary:%n");
 		list.stream().filter(fourToSixThousand).sorted(Comparator.comparing(Employee::getSalary))
 				.forEach(System.out::println);
 
-		// Exibe o primeiro Employee com salário no intervalo US$ -US$
+		// Exibe o primeiro Employee com salário no intervalo US$4000 - US$6000
 		System.out.printf("%nFirst employee who earns $-$:%n%s%n",
 				list.stream().filter(fourToSixThousand).findFirst().get());
-//Functions para obter o nome e o sobrenome de um Employee
+		//Functions para obter o nome e o sobrenome de um Employee
 		Function<Employee, String> byFirstName = Employee::getFirstName;
 		Function<Employee, String> byLastName = Employee::getLastName;
 
@@ -52,14 +55,14 @@ public class ProcessingEmployees {
 		// nome
 		System.out.printf("%nEmployees in descending order by last name then first:%n");
 		list.stream().sorted(lastThenFirst.reversed()).forEach(System.out::println);
-//exibe os sobrenomes únicos dos funcionários classificados
+		//exibe os sobrenomes únicos dos funcionários classificados
 		System.out.printf("%nUnique employee last names:%n");
 		list.stream().map(Employee::getLastName).distinct().sorted().forEach(System.out::println);
 
 		// exibe apenas o nome e o sobrenome
 		System.out.printf("%nEmployee names in order by last name then first name:%n");
 		list.stream().sorted(lastThenFirst).map(Employee::getName).forEach(System.out::println);
-// agrupa Employees por departamento
+		// agrupa Employees por departamento
 		System.out.printf("%nEmployees by department:%n");
 		Map<String, List<Employee>> groupedByDepartment = list.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment));
@@ -67,13 +70,13 @@ public class ProcessingEmployees {
 			System.out.println(department);
 			employeesInDepartment.forEach(employee -> System.out.printf(" %s%n", employee));
 		});
-//conta o número de Employees em cada departamento
+		//conta o número de Employees em cada departamento
 		System.out.printf("%nCount of Employees by department:%n");
 		Map<String, Long> employeeCountByDepartment = list.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 		employeeCountByDepartment
 				.forEach((department, count) -> System.out.printf("%s has %d employee(s)%n", department, count));
-//soma os salários dos Employees com o método de soma DoubleStream
+		//soma os salários dos Employees com o método de soma DoubleStream
 		System.out.printf("%nSum of Employees' salaries (via sum method): %.f%n",
 				list.stream().mapToDouble(Employee::getSalary).sum());
 
