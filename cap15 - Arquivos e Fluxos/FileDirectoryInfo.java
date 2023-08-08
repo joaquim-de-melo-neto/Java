@@ -29,9 +29,9 @@ public class FileDirectoryInfo {
 				
 				// objeto para iteração pelo conteúdo de um diretórioÿ
 				 DirectoryStream<Path> directoryStream =  Files.newDirectoryStream(path); 
-				
-				 for (Path p : directoryStream)
-				 System.out.println(p);
+				 directoryStream.forEach(System.out::println);
+				 //for (Path p : directoryStream)
+				 //System.out.println(p);
 			}
 		}
 		else System.out.printf("%s does not exist%n", path);
